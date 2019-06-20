@@ -1,0 +1,187 @@
+/* -- Menu Dropdown Styles -- */
+
+@media (max-width: 3000px) and (min-width: 992px) {
+    .navbar-expand-lg .sub-menu {
+        width: 250px;
+    }
+    .navbar-expand-lg .sub-menu:before {
+        content: "";
+        display: block;
+        height: 12px;
+        width: 12px;
+        background: #363e46;
+        transform: rotate(45deg);
+        position: absolute;
+        top: 22px;
+        right: 5px;
+    }
+    .navbar-expand-lg .sub-menu .sub-menu {
+        padding: 0;
+        border-right: 1px solid #777777;
+        top: 1px;
+    }
+    .navbar-expand-lg .sub-menu .sub-menu:before {
+        display: none;
+    }
+    .navbar-expand-lg .sub-menu .sub-menu ul {
+        top: 0;
+    }
+    .navbar-expand-lg .sub-menu .menu-item {
+        padding: 0;
+    }
+    .navbar-expand-lg .sub-menu .nav-link {
+        font-size: 14px;
+        color: #ffffff;
+        border: none;
+        padding: 10px 15px;
+        border-top: 1px solid rgba(255, 255, 255, .2);
+    }
+    .navbar-expand-lg .sub-menu .menu-item:first-child .nav-link {
+        border-top: none;
+    }
+    .top-navigation ul ul {
+        display: none;
+        position: absolute;
+        text-align: right;
+    }
+    .top-navigation ul ul ul {
+        display: none;
+        top: 0;
+    }
+    .top-navigation ul ul li:hover>ul,
+    .top-navigation ul ul li.focus>ul {
+        right: 100%;
+    }
+    .top-navigation ul ul .nav-link {
+        padding: 15px;
+        background: #363e46;
+        border-bottom: 1px solid rgba(255, 255, 255, .1);
+        display: block;
+        margin: 0;
+    }
+    .top-navigation ul li:hover>ul,
+    .top-navigation ul li.focus>ul {
+        display: block;
+        right: 0;
+        padding-top: 38px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .top-navigation ul li:hover>ul,
+    .top-navigation ul li.focus>ul,
+    .menu-item-has-children:after {
+        display: none;
+    }
+    .caret:after {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 10px;
+        content: "\f078";
+        color: #c2e76b;
+        display: inline-block;
+        padding: 5px;
+        line-height: 1;
+    }
+    .navbar-expand-lg .navbar-nav .menu-item.menu-open>ul {
+        display: block;
+        position: absolute;
+        right: 0;
+        padding-top: 28px;
+    }
+    .sub-menu .caret {
+        position: absolute;
+        top: 8px;
+        left: 5px;
+    }
+    .sub-menu .caret:after {
+        transform: rotate(90deg);
+        color: #ffffff;
+    }
+    .navbar-expand-lg .navbar-nav .current-menu-item .caret:after {
+        color: #ffffff;
+    }
+    .navbar-expand-lg .navbar-nav .menu-item.menu-open>ul ul {
+        right: 100%;
+        padding: 0;
+        top: 1px;
+    }
+    .navbar-expand-lg .navbar-nav .menu-item.menu-open>ul ul ul {
+        top: 0;
+    }
+    .blog-content article {
+        width: 33.3333%;
+    }
+    .blog-content .ytcont iframe {
+        height: 170px;
+    }
+}
+
+@media (max-width: 991px) {
+    #main {
+        padding: 20px;
+    }
+    .single iframe {
+        height: 340px;
+    }
+    .video-navigation .previous,
+    .video-navigation .next {
+        max-width: 230px;
+    }
+    #sidebar {
+        padding: 34px 20px;
+    }
+    .single #sidebar {
+        padding: 20px;
+    }
+    .widget_categories .cat-item {
+        width: 100%;
+    }
+    .widget_categories .cat-item:nth-child(even) {
+        margin: 0;
+    }
+    #main {
+        width: 72%;
+    }
+    #sidebar {
+        width: 28%;
+    }
+    .blog-content .ytcont iframe {
+        height: 140px;
+    }
+}
+
+@media (max-width: 767px) {
+    #main,
+    .single #main {
+        width: 100%;
+    }
+    #sidebar,
+    .single #sidebar {
+        width: 100%;
+        column-count: 2;
+    }
+}
+
+@media (max-width: 567px) {
+    .video-navigation .previous,
+    .video-navigation .next {
+        max-width: 100%;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 32px;
+    }
+    .blog-content article {
+        width: 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-content .ytcont iframe {
+        height: 110px;
+    }
+    #sidebar,
+    .single #sidebar {
+        column-count: 1;
+    }
+}
