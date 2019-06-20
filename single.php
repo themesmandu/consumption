@@ -54,7 +54,7 @@ get_header();
 					</div>
 					<?php endif; ?>
 				</div>
-				<div class="video-navigation blog-content">
+				<div class="video-navigation blog-content random">
 					<?php
 					$previous_random = new WP_Query(
 						array(
