@@ -93,6 +93,26 @@ function consumption_customize_register( $wp_customize ) {
 		)
 	);
 
+	// setting front ad area.
+	$wp_customize->add_setting(
+		'front_ad_area',
+		array(
+			'sanitize_callback' => 'wp_kses_post',
+		)
+	);
+	$wp_customize->add_control(
+		'front_ad_area',
+		array(
+			'label'       => esc_html__( 'Put your AD code here', 'consumption' ),
+			'description' => esc_html__(
+				'Note: This AD will appear after the search box',
+				'consumption'
+			),
+			'section'     => 'consumption_front_heading',
+			'type'        => 'textarea',
+		)
+	);
+
 	// Add category select section.
 	$wp_customize->add_section(
 		'consumption_category_select',
@@ -103,7 +123,7 @@ function consumption_customize_register( $wp_customize ) {
 		)
 	);
 
-	for ( $i = 1; $i <= 3; $i++ ) {
+	for ( $i = 1; $i <= 10; $i++ ) {
 		$wp_customize->add_setting(
 			'front_category_' . $i,
 			array(
@@ -127,6 +147,26 @@ function consumption_customize_register( $wp_customize ) {
 					'type'        => 'dropdown-taxonomies',
 					'taxonomy'    => 'category',
 				)
+			)
+		);
+
+		// setting category ad area.
+		$wp_customize->add_setting(
+			'front_category_ad_' . $i,
+			array(
+				'sanitize_callback' => 'wp_kses_post',
+			)
+		);
+		$wp_customize->add_control(
+			'front_category_ad_' . $i,
+			array(
+				'label'       => esc_html__( 'Put your AD code here', 'consumption' ),
+				'description' => esc_html__(
+					'Note: This AD will appear after the videos of the category',
+					'consumption'
+				),
+				'section'     => 'consumption_category_select',
+				'type'        => 'textarea',
 			)
 		);
 	}
