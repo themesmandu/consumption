@@ -119,6 +119,14 @@
     .blog-content .ytcont iframe {
         height: 170px;
     }
+    .navigator_wrapper .ad {
+        position: relative;
+        max-width: 100%;
+        width: auto;
+        right: unset;
+        top: unset;
+        margin-top: 40px;
+    }
 }
 
 @media (max-width: 991px) {

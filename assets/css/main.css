@@ -725,6 +725,10 @@ section .category_link {
 
 /* -- Single Page Video Navigation Styles -- */
 
+.navigator_wrapper {
+    position: relative;
+}
+
 .video-navigation {
     margin-top: 42px;
     margin: 0;
@@ -734,12 +738,42 @@ section .category_link {
     margin-top: 45px;
 }
 
+.navigator_wrapper .entry-title {
+    margin-top: 10px;
+}
+
 .video-navigation span {
-    font-family: GothamBold;
-    font-size: 16px;
+    font-family: GothamBlack;
+    font-size: 14px;
     color: #353638;
-    margin-bottom: 10px;
+    margin-top: 15px;
     display: block;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.video-navigation.random span {
+    margin-top: 10px;
+}
+
+.video-navigation span a {
+    font-family: GothamBold;
+    background: #1b1f2a;
+    font-size: 12px;
+    color: #e2f3b6;
+    padding: 7px 17px;
+    display: inline-block;
+}
+
+.navigator_wrapper .ad {
+    height: auto;
+    max-width: 275px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
 }
 
 .video-navigation .ytcont {
@@ -751,7 +785,7 @@ section .category_link {
 }
 
 .video-navigation a {
-    text-align: center;
+    text-align: left;
 }
 
 .video-navigation .previous {
