@@ -150,9 +150,9 @@ add_action( 'widgets_init', 'consumption_widgets_init' );
  * Enqueue scripts and styles.
  */
 function consumption_scripts() {
-	
-	// Jquery Min
-	wp_enqueue_script( 'consumption-jquery-js', get_theme_file_uri( '/assets/js/jquery-3.3.1.min.js' ), array(), '3.3.1', true );
+
+	// Jquery.
+	wp_enqueue_script( 'jquery' );
 
 	// Loading bootstrap css and js.
 	wp_enqueue_style( 'bootstrap-css', get_theme_file_uri( '/assets/css/bootstrap.min.css' ), array( 'consumption-style' ), '4.3.1' );

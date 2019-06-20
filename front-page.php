@@ -22,7 +22,7 @@ get_header();
 				<section class="content-heading">
 					<h1><?php echo esc_html( get_theme_mod( 'front_heading' ) ); ?></h1>
 					<p><?php echo esc_html( get_theme_mod( 'front_description' ) ); ?></p>
-					<?php echo wp_kses_post( get_theme_mod( 'front_ad_area' ) ); ?>
+					<?php echo base64_decode( get_theme_mod( 'front_ad_area' ) ); ?>
 					<?php get_search_form(); ?>
 				</section>
 
@@ -67,7 +67,7 @@ get_header();
 						}
 						?>
 					</div>
-						<?php echo wp_kses_post( get_theme_mod( 'front_category_ad_' . $i ) ); ?>
+						<?php echo base64_decode( get_theme_mod( 'front_category_ad_' . $i ) ); ?>
 					<a class="category_link" href="<?php echo esc_url( get_category_link( get_theme_mod( 'front_category_' . $i ) ) ); ?>">show more</a>
 				</section>
 					<?php } ?>

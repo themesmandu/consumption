@@ -97,7 +97,8 @@ function consumption_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'front_ad_area',
 		array(
-			'sanitize_callback' => 'wp_kses_post',
+			'sanitize_callback'    => 'consumption_sanitize_js_code',
+			'sanitize_js_callback' => 'consumption_escape_js_code',
 		)
 	);
 	$wp_customize->add_control(
@@ -199,3 +200,25 @@ function consumption_customize_preview_js() {
 	wp_enqueue_script( 'consumption-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
 add_action( 'customize_preview_init', 'consumption_customize_preview_js' );
+
+
+
+/**
+ * Sanitize js to save in database.
+ *
+ * @param  string $input as string.
+ * @return string
+ */
+function consumption_sanitize_js_code( $input ) {
+	return base64_encode($input);
+}
+
+/**
+ * Decode function to escape js for textarea in customizer.
+ *
+ * @param  string $input as string.
+ * @return string
+ */
+function consumption_escape_js_code( $input ) {
+	return esc_textarea( base64_decode($input) );
+}
