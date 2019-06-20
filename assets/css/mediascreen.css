@@ -1,5 +1,9 @@
 /* -- Menu Dropdown Styles -- */
 
+.navbar-expand-lg .sub-menu {
+    z-index: 9;
+}
+
 @media (max-width: 3000px) and (min-width: 992px) {
     .navbar-expand-lg .sub-menu {
         width: 250px;
@@ -12,7 +16,7 @@
         background: #363e46;
         transform: rotate(45deg);
         position: absolute;
-        top: 22px;
+        top: 32px;
         right: 5px;
     }
     .navbar-expand-lg .sub-menu .sub-menu {
