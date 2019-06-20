@@ -155,7 +155,8 @@ function consumption_customize_register( $wp_customize ) {
 		$wp_customize->add_setting(
 			'front_category_ad_' . $i,
 			array(
-				'sanitize_callback' => 'wp_kses_post',
+				'sanitize_callback'    => 'consumption_sanitize_js_code',
+				'sanitize_js_callback' => 'consumption_escape_js_code',
 			)
 		);
 		$wp_customize->add_control(
@@ -210,7 +211,7 @@ add_action( 'customize_preview_init', 'consumption_customize_preview_js' );
  * @return string
  */
 function consumption_sanitize_js_code( $input ) {
-	return base64_encode($input);
+	return base64_encode( $input );
 }
 
 /**
@@ -220,5 +221,5 @@ function consumption_sanitize_js_code( $input ) {
  * @return string
  */
 function consumption_escape_js_code( $input ) {
-	return esc_textarea( base64_decode($input) );
+	return esc_textarea( base64_decode( $input ) );
 }
