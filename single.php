@@ -73,8 +73,8 @@ get_header();
 						<span>Previous Random</span>
 						<a href="<?php echo get_permalink( $previous_random->ID ); ?>">
 							<div class="ytcont">
-								<?php echo apply_filters( 'the_content', $previous_random->post_content ); ?>
-								<h2 class="entry-title"><?php echo $previous_random->post_title; ?></h2>
+								<?php the_content( '' ); ?>
+								<h2 class="entry-title"><?php the_title(); ?></h2>
 							</div>
 						</a>
 
@@ -98,8 +98,8 @@ get_header();
 						<span>Next Random</span>
 						<a href="<?php echo get_permalink( $next_random->ID ); ?>">
 							<div class="ytcont">
-								<?php echo apply_filters( 'the_content', $next_random->post_content ); ?>
-								<h2 class="entry-title"><?php echo $next_random->post_title; ?></h2>
+								<?php the_content( '' ); ?>
+								<h2 class="entry-title"><?php the_title(); ?></h2>
 							</div>
 						</a>
 
