@@ -39,8 +39,8 @@ function consumption_customize_register( $wp_customize ) {
 	$wp_customize->add_panel(
 		'consumption_front_page_panel',
 		array(
-			'title'       => esc_html__( 'Consumption Front Page Options', 'consumption' ),
-			'description' => esc_html__( 'Consumption Front Page Options.', 'consumption' ),
+			'title'       => esc_html__( 'Consumption Theme Options', 'consumption' ),
+			'description' => esc_html__( 'Several options of the theme.', 'consumption' ),
 			'priority'    => 150,
 		)
 	);
@@ -172,6 +172,37 @@ function consumption_customize_register( $wp_customize ) {
 			)
 		);
 	}
+
+	// Add single page section.
+	$wp_customize->add_section(
+		'consumption_single_page',
+		array(
+			'title'       => esc_html__( 'Single Page AD', 'consumption' ),
+			'description' => esc_html__( 'Single page ad area section.', 'consumption' ),
+			'panel'       => 'consumption_front_page_panel',
+		)
+	);
+
+	// setting single page ad area.
+	$wp_customize->add_setting(
+		'single_ad_area',
+		array(
+			'sanitize_callback'    => 'consumption_sanitize_js_code',
+			'sanitize_js_callback' => 'consumption_escape_js_code',
+		)
+	);
+	$wp_customize->add_control(
+		'single_ad_area',
+		array(
+			'label'       => esc_html__( 'Put your AD code here', 'consumption' ),
+			'description' => esc_html__(
+				'Note: This AD will appear in single page post navigation area',
+				'consumption'
+			),
+			'section'     => 'consumption_single_page',
+			'type'        => 'textarea',
+		)
+	);
 
 }
 add_action( 'customize_register', 'consumption_customize_register' );
