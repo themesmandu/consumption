@@ -739,11 +739,11 @@ section .category_link {
 }
 
 .video-navigation .ytcont {
-    max-width: 300px;
+    max-width: 230px;
 }
 
 .video-navigation .ytcont iframe {
-    height: 190px;
+    height: 150px;
 }
 
 .video-navigation a {
