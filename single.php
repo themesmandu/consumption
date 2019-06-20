@@ -69,7 +69,7 @@ get_header();
 							$previous_random->the_post();
 							$previous_random_id = $previous_random->ID;
 							?>
-						<div class="previous-randon">
+						<div class="previous-randon previous">
 						<span>Previous Random</span>
 						<a href="<?php echo get_permalink( $previous_random->ID ); ?>">
 							<div class="ytcont">
@@ -94,7 +94,7 @@ get_header();
 						while ( $next_random->have_posts() ) :
 							$next_random->the_post();
 							?>
-						<div class="next-randon">
+						<div class="next-randon next">
 						<span>Next Random</span>
 						<a href="<?php echo get_permalink( $next_random->ID ); ?>">
 							<div class="ytcont">
