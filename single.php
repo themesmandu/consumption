@@ -24,8 +24,8 @@ get_header();
 
 				get_template_part( 'template-parts/content', get_post_type() );
 
-				$previous_post = get_previous_post();
-
+				$current_categorys = get_the_category();
+				$previous_post     = get_previous_post();
 				?>
 				<div class="video-navigation blog-content">
 				<?php if ( $previous_post ) : ?>
@@ -52,6 +52,59 @@ get_header();
 							</div>
 						</a>
 					</div>
+					<?php endif; ?>
+				</div>
+				<div class="video-navigation blog-content">
+					<?php
+					$previous_random = new WP_Query(
+						array(
+							'posts_per_page' => 1,
+							'orderby'        => 'rand',
+							'cat'            => $current_categorys[0]->term_id,
+							'post__not_in'   => array( get_the_ID() ),
+						)
+					);
+					if ( $previous_random->have_posts() ) :
+						while ( $previous_random->have_posts() ) :
+							$previous_random->the_post();
+							$previous_random_id = $previous_random->ID;
+							?>
+						<div class="previous-randon">
+						<span>Previous Random</span>
+						<a href="<?php echo get_permalink( $previous_random->ID ); ?>">
+							<div class="ytcont">
+								<?php echo apply_filters( 'the_content', $previous_random->post_content ); ?>
+								<h2 class="entry-title"><?php echo $previous_random->post_title; ?></h2>
+							</div>
+						</a>
+
+						</div>
+						<?php endwhile; ?>
+					<?php endif; ?>
+					<?php
+					$next_random = new WP_Query(
+						array(
+							'posts_per_page' => 1,
+							'orderby'        => 'rand',
+							'cat'            => $current_categorys[0]->term_id,
+							'post__not_in'   => array( get_the_ID(), $previous_random_id ),
+						)
+					);
+					if ( $next_random->have_posts() ) :
+						while ( $next_random->have_posts() ) :
+							$next_random->the_post();
+							?>
+						<div class="next-randon">
+						<span>Next Random</span>
+						<a href="<?php echo get_permalink( $next_random->ID ); ?>">
+							<div class="ytcont">
+								<?php echo apply_filters( 'the_content', $next_random->post_content ); ?>
+								<h2 class="entry-title"><?php echo $next_random->post_title; ?></h2>
+							</div>
+						</a>
+
+						</div>
+						<?php endwhile; ?>
 					<?php endif; ?>
 				</div>
 				<?php
