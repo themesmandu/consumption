@@ -29,23 +29,25 @@ if ( post_password_required() ) {
 		<h2 class="comments-title">
 		<?php
 			$consumption_comment_count = get_comments_number();
-			if ( '1' === $consumption_comment_count ) {
-				echo esc_html__( '1 Comment', 'consumption' );
-			} else {
-				printf( // WPCS: XSS OK.
-					// translators: 1: comment count number, 2: title. /
-					esc_html__( '%d Comments', 'consumption' ),
-					number_format_i18n( $consumption_comment_count )
-				);
-			}
-			?>
+		if ( '1' === $consumption_comment_count ) {
+			echo esc_html__( '1 Comment', 'consumption' );
+		} else {
+			printf( // WPCS: XSS OK.
+				// translators: 1: comment count number, 2: title. /
+				esc_html__( '%d Comments', 'consumption' ),
+				number_format_i18n( $consumption_comment_count )
+			);
+		}
+		?>
 		</h2><!-- .comments-title -->
 
 		<ol class="comment-list">
 			<?php
-			wp_list_comments( array(
-				'callback'      => 'cunsumption_custom_comments'
-			) );
+			wp_list_comments(
+				array(
+					'callback' => 'cunsumption_custom_comments',
+				)
+			);
 			?>
 		</ol><!-- .comment-list -->
 
